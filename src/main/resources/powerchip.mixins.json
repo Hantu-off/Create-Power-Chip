@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "xyz.amycute.powerchip.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "CircuitDesignTableEditScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

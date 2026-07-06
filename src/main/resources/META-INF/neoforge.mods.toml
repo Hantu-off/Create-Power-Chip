@@ -1,0 +1,49 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+modId = "powerchip"
+version = "${file.jarVersion}"
+displayName = "Create: Power Chip"
+description = '''
+Addon for Create: Power Grid adding nested circuit board chip components.
+'''
+
+[[mixins]]
+config = "powerchip.mixins.json"
+
+[[dependencies.powerchip]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neoforge_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.powerchip]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.powerchip]]
+modId = "powergrid"
+type = "required"
+versionRange = "[0.5.5,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.powerchip]]
+modId = "create"
+type = "required"
+versionRange = "[6.0.9,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.powerchip]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.0,)"
+ordering = "AFTER"
+side = "BOTH"

@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    { "item": "minecraft:quartz" },
+    { "item": "minecraft:coal" },
+    { "item": "minecraft:iron_nugget" },
+    { "item": "create:copper_nugget" },
+    {
+      "type": "neoforge:single",
+      "amount": 100,
+      "fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    { "id": "powerchip:chip_casing" }
+  ]
+}
