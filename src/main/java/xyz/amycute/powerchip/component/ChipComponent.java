@@ -70,7 +70,7 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
             var name = pad.tooltip() != null ? pad.tooltip() : net.minecraft.network.chat.Component.literal("IO " + (pad.nodeIndex() + 1));
             ordered[pad.nodeIndex()] = new TerminalBoundingBox(name, point.x(), 0, point.y(), point.x() + 1, 1, point.y() + 1);
         }
-        ArrayList<TerminalBoundingBox> list = new ArrayList<TerminalBoundingBox>(MAX_IO);
+        ArrayList<TerminalBoundingBox> list = new ArrayList<>(MAX_IO);
 
         for (TerminalBoundingBox bb : ordered)
         {
@@ -82,7 +82,7 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
     }
 
     @Override
-    public void bake(PlacedComponent placed, ComponentCircuitBuilder builder, ThermalBuilder.IEmitter thermalEmitter)
+    public void bake(@NotNull PlacedComponent placed, @NotNull ComponentCircuitBuilder builder, ThermalBuilder.@NotNull IEmitter thermalEmitter)
     {
         CircuitSchematic schematic = getInnerSchematic(placed);
         if (schematic == null) return;
@@ -95,7 +95,7 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
                 return true;
             }
 
-            @Override public Iterator<INode> iterator()
+            @Override public @NotNull Iterator<INode> iterator()
             {
                 throw new UnsupportedOperationException();
             }
@@ -114,7 +114,7 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
                 return true;
             }
 
-            @Override public Iterator<AbstractElectricWire> iterator()
+            @Override public @NotNull Iterator<AbstractElectricWire> iterator()
             {
                 throw new UnsupportedOperationException();
             }
@@ -125,12 +125,12 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
             }
         };
 
-        HashMap<PlacedComponent, Function<Integer, FloatingNode>> padNodeProviderMap = new HashMap<PlacedComponent, Function<Integer, FloatingNode>>();
+        HashMap<PlacedComponent, Function<Integer, FloatingNode>> padNodeProviderMap = new HashMap<>();
         int[] innerExternalBundleIndex = new int[]{0};
 
         for (PlacedComponent innerPlaced : schematic.components())
         {
-            HashSet<Integer> nodeIndexSet = new HashSet<Integer>();
+            HashSet<Integer> nodeIndexSet = new HashSet<>();
             for (var pad : innerPlaced.footprint().getPads().values()) if (pad.nodeIndex() >= 0) nodeIndexSet.add(pad.nodeIndex());
 
             Function<Integer, FloatingNode> provider;
@@ -198,7 +198,7 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
     public static String getChipName(PlacedComponent placed)
     {
         CircuitSchematic schematic = getInnerSchematic(placed);
-        if (schematic == null) return "Chip"; // Should maybe throw lmao
+        if (schematic == null) return ""; // Should maybe throw lmao
 
         for (PlacedComponent inner : schematic.components())
         {
@@ -208,7 +208,7 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
                 if (!name.isEmpty()) return name;
             }
         }
-        return "Chip";
+        return "";
     }
 
     @Override

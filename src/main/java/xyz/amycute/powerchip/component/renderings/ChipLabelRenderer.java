@@ -34,13 +34,6 @@ public final class ChipLabelRenderer
     private static float[] cachedUs;
     private static float[] cachedVs;
 
-    public static void invalidateCache()
-    {
-        cachedSprite = null;
-        cachedUs = null;
-        cachedVs = null;
-    }
-
     private static void ensureCached()
     {
         if (cachedSprite != null) return;
