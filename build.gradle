@@ -24,6 +24,8 @@ repositories {
     maven { url = "https://maven.createmod.net" }
     maven { url = "https://maven.ithundxr.dev/snapshots" }
     maven { url = "https://maven.terraformersmc.com/" }
+
+    maven { url "https://cursemaven.com" }
 }
 
 neoForge {
@@ -63,5 +65,6 @@ dependencies {
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
-    implementation "powergrid:powergrid-mc${minecraft_version}-${powergrid_version}"
+
+    implementation "curse.maven:power-grid-1321420:7999746"
 }

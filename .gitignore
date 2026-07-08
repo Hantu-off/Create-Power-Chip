@@ -1,0 +1,15 @@
+*
+
+!.gitignore
+
+!.github
+!.github/**/*
+
+!src
+!src/**/*
+
+!build.gradle
+!gradle*
+
+!gradle
+!gradle/**/*
