@@ -36,6 +36,7 @@ import java.util.function.Function;
 public class ChipComponent extends Component implements IRenderedComponent, IComponentGoggleInformation
 {
     public static final int MAX_IO = 8;
+    public static final int MAX_CHIP_DEPTH = 5;
     public static final SchematicProperty SCHEMATIC = new SchematicProperty(PowerChips.MOD_ID, "chip_schematic");
 
     public ChipComponent(ComponentFootprint footprint)
@@ -70,6 +71,39 @@ public class ChipComponent extends Component implements IRenderedComponent, ICom
             if (label != null && !label.isEmpty()) return label;
         }
         return null;
+    }
+
+    public static int getChipDepth(CompoundTag schematicTag)
+    {
+        return getChipDepth(schematicTag, 0);
+    }
+
+    private static int getChipDepth(CompoundTag schematicTag, int currentDepth)
+    {
+        if (currentDepth >= MAX_CHIP_DEPTH) return currentDepth;
+        if (schematicTag == null || schematicTag.isEmpty()) return currentDepth;
+
+        CircuitSchematic schematic = CircuitSchematic.fromNbt(schematicTag);
+        if (schematic == null) return currentDepth;
+
+        int maxDepth = currentDepth;
+        for (PlacedComponent inner : schematic.components())
+        {
+            if (!(inner.component instanceof ChipComponent)) continue;
+
+            CompoundTag innerSchematic = inner.get(SCHEMATIC);
+            if (innerSchematic == null || innerSchematic.isEmpty()) continue;
+
+            int depth = getChipDepth(innerSchematic, currentDepth + 1);
+            if (depth > maxDepth) maxDepth = depth;
+            if (maxDepth >= MAX_CHIP_DEPTH) break;
+        }
+        return maxDepth;
+    }
+
+    public static boolean exceedsMaxDepth(CompoundTag schematicTag)
+    {
+        return getChipDepth(schematicTag) >= MAX_CHIP_DEPTH;
     }
 
     @Override

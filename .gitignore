@@ -10,6 +10,7 @@
 
 !build.gradle
 !gradle*
+!*gradle
 
 !gradle
 !gradle/**/*

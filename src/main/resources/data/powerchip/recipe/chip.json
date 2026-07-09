@@ -1,0 +1,41 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": { "item": "powergrid:circuit_board" },
+  "loops": 1,
+  "results": [
+    { "chance": 100.0, "id": "powerchip:chip" }
+  ],
+  "transitional_item": { "id": "powerchip:incomplete_chip" },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "powerchip:incomplete_chip" },
+        { "item": "create:iron_sheet" }
+      ],
+      "results": [ { "id": "powerchip:incomplete_chip" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        { "item": "powerchip:incomplete_chip" }
+      ],
+      "results": [ { "id": "powerchip:incomplete_chip" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        { "item": "powerchip:incomplete_chip" }
+      ],
+      "results": [ { "id": "powerchip:incomplete_chip" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "powerchip:incomplete_chip" },
+        { "item": "powerchip:chip_casing" }
+      ],
+      "results": [ { "id": "powerchip:incomplete_chip" } ]
+    }
+  ]
+}
