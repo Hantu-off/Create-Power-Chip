@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "powerchip:chip",
+    "minecraft:name_tag",
+    "minecraft:gold_nugget"
+  ]
+}
