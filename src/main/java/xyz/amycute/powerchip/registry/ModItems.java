@@ -9,5 +9,6 @@ public class ModItems
 {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PowerChips.MOD_ID);
     public static final DeferredHolder<Item, Item> CHIP_CASING = ITEMS.registerSimpleItem("chip_casing", new Item.Properties());
+    public static final DeferredHolder<Item, Item> INCOMPLETE_CHIP = ITEMS.registerSimpleItem("incomplete_chip", new Item.Properties());
     public static final DeferredHolder<Item, Item> CHIP = ITEMS.registerSimpleItem("chip", new Item.Properties());
 }
