@@ -6,7 +6,8 @@
   "client": [
     "CircuitDesignTableEditScreenMixin",
     "CircuitSchematicRenderMixin",
-    "ComponentPropertiesWidgetMixin"
+    "ComponentPropertiesWidgetMixin",
+    "SequencedAssemblyRecipeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
