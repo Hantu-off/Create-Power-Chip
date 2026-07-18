@@ -40,7 +40,7 @@ jobs:
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
           echo "tag=$TAG_NAME"
 
-      - name: Publish to GitHub Releases
+      - name: Publish to GitHub, Modrinth & CurseForge
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           github-token: ${{ secrets.GH_RELEASE }}
@@ -48,6 +48,12 @@ jobs:
           github-generate-changelog: true
           github-draft: false
           github-prerelease: false
+
+          modrinth-id: ${{ secrets.MODRINTH_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: ${{ secrets.CURSEFORGE_ID }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           name: powerchip-${{ env.TAG_NAME }}
           version: powerchip-${{ env.TAG_NAME }}
