@@ -51,9 +51,14 @@ jobs:
 
           modrinth-id: ${{ secrets.MODRINTH_ID }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-dependencies: |
+            eWiBLJ9R@0.5.5.1(required)
 
           curseforge-id: ${{ secrets.CURSEFORGE_ID }}
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          curseforge-dependencies: |
+            1321420@0.5.5.1(required)
 
           name: powerchip-${{ env.TAG_NAME }}
           version: powerchip-${{ env.TAG_NAME }}
