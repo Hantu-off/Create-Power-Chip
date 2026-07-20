@@ -4,8 +4,9 @@ license = "MIT"
 
 [[mods]]
 modId = "powerchip"
-version = "1.0.1"
+version = "1.0.2"
 displayName = "Create: Power Chip"
+logoFile = "icon.png"
 description = '''
 Addon for Create: Power Grid adding nested circuit board chip components.
 '''
@@ -34,16 +35,3 @@ versionRange = "[0.5.5,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies.powerchip]]
-modId = "create"
-type = "required"
-versionRange = "[6.0.9,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.powerchip]]
-modId = "architectury"
-type = "required"
-versionRange = "[13.0.0,)"
-ordering = "AFTER"
-side = "BOTH"
